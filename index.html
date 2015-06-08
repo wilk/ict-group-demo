@@ -3,9 +3,58 @@
     <head>
         <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
         <title>App Example</title>
-        <script src="bower_components/angular/angular.js"></script>
+        <script src="bower_components/angular/angular.min.js"></script>
+        <script src="bower_components/ngstorage/ngStorage.min.js"></script>
+        <script src="bower_components/jspdf/dist/jspdf.min.js"></script>
+        <script src="bower_components/html2canvas/build/html2canvas.min.js"></script>
+        <script src="bower_components/jquery/dist/jquery.min.js"></script>
+        <script src="app/app.js"></script>
     </head>
-    <body>
+    <body ng-app="demo" dm-print>
+        <div id="pdf" style="width: 300px; height: 300px;"></div>
+
+
+        <div ng-include="'views/hello.html'"></div>
+        <div ng-init="a = 10"></div>
+        <div ng-controller="aCtrl">
+
+            <table style="background: red; border: 1px solid black;">
+                <thead>
+                <tr>
+                    <td>Name</td>
+                    <td>Surname</td>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>{{name}}</td>
+                    <td>{{surname}}</td>
+                </tr>
+                </tbody>
+            </table>
+            {{obj | json:2}}
+            <button ng-click="pdf()">PDF</button>
+            <ul>
+                <li ng-repeat="user in users | orderBy:'age':true">{{user.name}} - {{user.age}}</li>
+            </ul>
+            <button ng-click="clickHandler(another_name)">Change name</button>
+            {{name | star}}
+            <input type="text" ng-model="another_name"/>
+            <div ng-switch="name">
+                <div ng-switch-when="foo">Foo</div>
+                <div ng-switch-when="bar">Bar</div>
+                <div ng-switch-default>Default</div>
+            </div>
+            <!--<dm-decorator name="name" surname="{{surname}}" introduce="introduce()"></dm-decorator>-->
+            <dm-clock></dm-clock>
+            <dm-super-decorator>
+                <dm-decorator ng-model="name"><button ng-click="fooCtrl.introduce()">Click me</button></dm-decorator>
+            </dm-super-decorator>
+        </div>
+
         {{10 + 10}}
+        {{20 + 20}}
+
+        <div dm-clock></div>
     </body>
 </html>

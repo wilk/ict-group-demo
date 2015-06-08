@@ -1,4 +1,6 @@
 var gulp = require('gulp'),
+    concat = require('gulp-concat'),
+    uglify = require('gulp-uglify'),
     connect = require('gulp-connect');
 
 gulp.task('connect', function () {
@@ -19,6 +21,16 @@ gulp.task('js', function () {
 
 gulp.task('watch', function () {
     return gulp.watch(['index.html', 'app/**/*.js'], ['html', 'js']);
+});
+
+gulp.task('build', function () {
+    return gulp.src([
+        'bower_components/angular/angular.js',
+        'bower_components/angular-ui-router/release/angular-ui-router.js'
+    ])
+        .pipe(concat('bundle.js'))
+        .pipe(uglify())
+        .pipe(gulp.dest('./dist'));
 });
 
 gulp.task('serve', ['connect', 'watch']);

@@ -1,7 +1,6 @@
 {
   "name": "angular-course",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -10,6 +9,17 @@
   "license": "ISC",
   "dependencies": {
     "gulp": "^3.9.0",
-    "gulp-connect": "^2.2.0"
-  }
+    "gulp-concat": "^2.5.2",
+    "gulp-connect": "^2.2.0",
+    "gulp-uglify": "^1.2.0"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wilk/ict-group-demo.git"
+  },
+  "bugs": {
+    "url": "https://github.com/wilk/ict-group-demo/issues"
+  },
+  "homepage": "https://github.com/wilk/ict-group-demo"
 }
