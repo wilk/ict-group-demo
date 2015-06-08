@@ -1,10 +1,24 @@
 var gulp = require('gulp'),
-    jshint = require('gulp-jshint');
+    connect = require('gulp-connect');
 
-gulp.task('lint', function () {
-	return gulp.src('app.js')
-		.pipe(jshint())
-		.pipe(jshint.reporter());
+gulp.task('connect', function () {
+    connect.server({
+        livereload: true
+    });
 });
 
-gulp.task('server', ['lint']);
+gulp.task('html', function () {
+    return gulp.src('index.html')
+        .pipe(connect.reload());
+});
+
+gulp.task('js', function () {
+    return gulp.src('app/**/*.js')
+        .pipe(connect.reload());
+});
+
+gulp.task('watch', function () {
+    return gulp.watch(['index.html', 'app/**/*.js'], ['html', 'js']);
+});
+
+gulp.task('serve', ['connect', 'watch']);
