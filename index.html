@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+    <head>
+        <!-- build:js -->
+        <!-- bower:js -->
+        <script src="bower_components/angular/angular.min.js"></script>
+        <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+        <script src="bower_components/angular-route/angular-route.js"></script>
+        <script src="bower_components/ngstorage/ngStorage.js"></script>
+        <!-- endbower -->
+        <script src="app.js"></script>
+        <!--script src="wizard/wizard.js"></script>
+        <script src="wizard/wizardService.js"></script>
+        <script src="wizard/customer/customerCtrl.js"></script>
+        <script src="wizard/detail/detailCtrl.js"></script-->
+        <!-- endbuild -->
+    </head>
+    <body ng-app="lol">
+        <div ng-controller="myCtrl">
+            <input type="text" ng-model="name"/>
+            <button ng-click="set(name)">Change name</button>
+        </div>
+        <ui-view></ui-view>
+    </body>
+</html>
