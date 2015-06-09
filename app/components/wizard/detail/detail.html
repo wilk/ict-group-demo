@@ -1,0 +1,14 @@
+<div>
+    <form name="detail" novalidate>
+        <div>
+            <label>Name</label>
+            <input type="text" ng-model-options="{updateOn: 'blur'}" ng-model="customer.name"/>
+        </div>
+        <div>
+            <label>Surname</label>
+            <input type="text" ng-model-options="{updateOn: 'blur'}" ng-model="customer.surname"/>
+        </div>
+        <button ng-click="saveCustomer(customer)">Save</button>
+        <a ui-sref="wizard.customer">< Back</a>
+    </form>
+</div>

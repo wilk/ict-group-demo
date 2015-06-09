@@ -1,0 +1,11 @@
+<div>
+    <ul>
+        <li ng-repeat="customer in customers">
+            <h2>{{customer.id}}</h2>
+            <div>
+                <b>{{customer.name}} - {{customer.surname}}</b>
+            </div>
+            <button ng-disabled="loading" ng-click="saveCustomer(customer)">{{loadingText}}</button>
+        </li>
+    </ul>
+</div>
